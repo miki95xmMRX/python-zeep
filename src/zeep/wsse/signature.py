@@ -229,6 +229,7 @@ def _verify_envelope_with_key(envelope, key):
 
     header = envelope.find(QName(soap_env, 'Header'))
     if header is None:
+        import pdb;pdb.set_trace()
         raise SignatureVerificationFailed()
 
     security = header.find(QName(ns.WSSE, 'Security'))
@@ -253,6 +254,7 @@ def _verify_envelope_with_key(envelope, key):
     try:
         ctx.verify(signature)
     except xmlsec.Error:
+        import pdb;pdb.set_trace()
         # Sadly xmlsec gives us no details about the reason for the failure, so
         # we have nothing to pass on except that verification failed.
         raise SignatureVerificationFailed()
