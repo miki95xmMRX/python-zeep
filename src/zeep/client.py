@@ -288,6 +288,7 @@ class Client(object):
         self._default_soapheaders = headers
 
     def _get_port(self, service, name):
+        import pdb;pdb.set_trace()
         if name:
             port = service.ports.get(name)
             if not port:
