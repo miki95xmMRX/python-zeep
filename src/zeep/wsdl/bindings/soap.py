@@ -60,7 +60,6 @@ class SoapBinding(Binding):
         Note that this generates the soap envelope without the wsse applied.
 
         """
-        import pdb;pdb.set_trace()
         operation_obj = self.get(operation)
         if not operation_obj:
             raise ValueError("Operation %r not found" % operation)
@@ -105,14 +104,15 @@ class SoapBinding(Binding):
         :type kwargs: dict
 
         """
-        import ipdb;ipdb.set_trace()
         envelope, http_headers = self._create(
             operation, args, kwargs,
             client=client,
             options=options)
 
+        import ipdb;ipdb.set_trace()
         response = client.transport.post_xml(
             options['address'], envelope, http_headers)
+        import ipdb;ipdb.set_trace()
 
         operation_obj = self.get(operation)
 
