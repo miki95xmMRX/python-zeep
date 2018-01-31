@@ -9,6 +9,7 @@ class AsyncSoapBinding(object):
 
     @gen.coroutine
     def send(self, client, options, operation, args, kwargs):
+        import ipdb;ipdb.set_trace()
         envelope, http_headers = self._create(
             operation, args, kwargs,
             client=client,

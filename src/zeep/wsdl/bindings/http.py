@@ -67,6 +67,7 @@ class HttpPostBinding(HttpBinding):
 
     def send(self, client, options, operation, args, kwargs):
         """Called from the service"""
+        import ipdb;ipdb.set_trace()
         operation_obj = self.get(operation)
         if not operation_obj:
             raise ValueError("Operation %r not found" % operation)
@@ -95,6 +96,7 @@ class HttpGetBinding(HttpBinding):
 
     def send(self, client, options, operation, args, kwargs):
         """Called from the service"""
+        import ipdb;ipdb.set_trace()
         operation_obj = self.get(operation)
         if not operation_obj:
             raise ValueError("Operation %r not found" % operation)
